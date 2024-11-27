@@ -1,0 +1,162 @@
+confirm changes is called commit in github
+
+md-mark down
+
+pwd command - present working directory
+
+setting up username and email of github account in git
+
+git config --global user.name knh27
+git config --global user.email myEmail
+git config --list
+
+
+git commands:
+###1. clone -cloning a repo on local machine(duplicate to local machine from github) 
+[git clone ..link..],
+
+>>to see all files, even hidden ones , ls -a for linux and ls -force for window
+
+>> git hub creates a folder .git in which all files are tracked
+
+>>get https link from code
+
+
+
+
+###2. status - used to check whether file at git hub and local server is same or not
+[git status]
+
+***new file -> staged file ->commit*****
+
+**types of status
+1. modified(changed)
+2. staged(file ready to be committed)
+3. unmodified
+4. untracked(new file that git hasnot tracked  yet)
+
+if we make changes/add files and then add them then they are ready to be committed and now comes in staged and after committed, then it becomes unmodified
+
+
+###3 ADD-adds new or changed files in your working directory to the git staging area
+[git add fileName]  this stages file
+
+
+
+###4. COMMIT - it is record of changes
+[git commit -m]
+
+
+###5. PUSH - upload local repo content to remote repo
+[git push origin main]
+origin - name of repository of github , which is by default that is remote repos
+means name of remote repo of github and main is branch of origin aur jahan se clone kiye the wahi origin hai
+
+
+###6. INIT to create a git repo of project/folder
+    [ git init ] 
+    [ git remote add origin <LINK> ]
+    [ git remote -v ]  (to verify remote)
+    [ git branch ] (to check branch)
+    [ git branch -M main ] (to rename a branch)
+    [ git push origin main ]
+
+
+branch helps when many teams work on a project and so copies of 
+
+>>[git push -u origin main] ( it is a short form for future use if everytime want to push code in same main branch.....so write simply git push)
+[git push]
+
+work flow of **local git**
+github repo > clone > changes > add > commit > push
+
+
+
+
+
+
+
+
+GIT BRANCHES-commands
+
+[git branch] - to check current branch
+
+[git branch -M myNewBrachName] - to rename branch
+
+[git checkout <-branch name->] - to navigate among branches
+
+[git checkout -b <-new branch ->] - to create a new branch
+
+[git branch -d <-branch name->] - to delete a branch
+
+
+but keep in mind, jis branch pe hain usse delete nahi kar sakte....ek pe baith kar dusre ko katna hai....na ki ussi ko
+
+
+to make changes visible on other branches also, from one branch
+<means to push changes of branch2 on github ,,,here donot confuse that changes of branch2 is pushed to main branch :X)
+
+###[git push origin branch2]
+
+
+
+
+
+
+###Merging branches
+first way:
+compare jis branch pe ho(branch2 pe) , usse main se
+
+#[git diff main]
+
+to merge branch2 with main, 
+#[git merge main]
+
+
+second way is by using github  by crating a PR (pull request)
+
+pull request- tells other people , what changes you have made/pushed in a branch in repo
+
+create a pull  request > github checks whether it can be merged or not(if lines are not conflicting) 
+
+
+
+###pull command - used to fetch and download content from a remote repo and immediately update the local repo to match that content
+
+#[git pull origin main]
+
+#[git merge main]- to merge branch2 and main branch
+
+merge conficts: an event take place when git unable to resolve differences i.e. ek branch a and other branch b
+
+we have 3 option 
+1.accept both changes
+2. accept incoming changes
+3. leave original, no acceptance
+
+merging ke time- dono ko merge karna hoga individually
+
+pahale ek branch ko merge kar do i.e.  branch2 mein hain.....git merge main -> accept both -> commit(in branch2)->go to main-> git merge branch2(main ko branch2 ke saath merge kar diye) -> no need to commit agian in main, directly push
+
+
+
+
+###undoing changes
+1. added but not commited
+    [git reset <-file name->]
+    
+    [git reset]
+
+2. commited changes (for one commit)
+    [git reset Head~1]
+
+3. commited changes(for multiple commits)
+
+    [git reset <-commit hash->]
+
+    [git reset --hard <-commit hash->]
+
+
+
+
+### Fork- a fork is a new repo that shares code with original upstream repo , >>like a rough copy
